@@ -6,7 +6,7 @@ class Words{
         this.displayArr = this.letterArr.map(letter => new Letters(letter));
 
         this.displayFn = () => {
-            console.log(this.displayArr.map(letter => letter.display).join(""));
+            console.log(this.displayArr.map(letter => letter.display).join("") + "\n");
         };
 
         this.runGuess = (guess) => {
