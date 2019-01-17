@@ -6,20 +6,14 @@ class Letters{
             this.display = this.placeholder;
             this.guessed = false;
 
-            this.guessFn = () => {
-                if (!this.guessed) {
-                    this.display = this.placeholder;
-                } else if (this.guessed) {
-                    this.display = this.value;
-                }
-            };
-
             this.compareFn = (guess) => {
-                if (guess == this.value) {
+                if (guess == this.value && !this.guessed) {
                     this.guessed = true;
+                    this.display = this.value;
                 } else if (guess != this.value) {
                     this.guessed = false;
-                }
+                    this.display = this.placeholder;
+                };
             };
         } else if (letter == " ") {
             this.value = letter;

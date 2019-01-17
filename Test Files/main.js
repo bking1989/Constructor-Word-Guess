@@ -2,28 +2,24 @@ var Inquirer = require("inquirer");
 var Words = require("./words.js");
 
 var wordBank = ["San Diego", "San Francisco", "Los Angeles", "Sacramento", "Fresno"];
-
-const randomWord = () => {
-    var randomNum = Math.floor(Math.random() * 5) + 1;
-    var chosenWord = wordBank[randomNum];
-    var converted = new Words(chosenWord);
-    converted.displayFn();
-}
+var randomNum = Math.floor(Math.random() * 5) + 1;
+var chosenWord = wordBank[randomNum];
+var convertedWord = new Words(chosenWord);
 
 const guessGame = () => {
-    randomWord();
+    console.log("\n");
+    convertedWord.displayFn();
 
     Inquirer.prompt([
         {
-            name: "opener",
-            type: "input",
-            message: "Please guess a letter by entering it with a keyboard.",
+            name: 'guess',
+            type: 'input',
+            message: "Please enter a letter to make a guess."
         }
     ]).then(function(answer) {
-        var userInput = answer;
-        converted.runGuess(userInput);
-        converted.displayFn();
-    });
+        convertedWord.runGuess(answer.guess);
+        guessGame();
+    })
 }
 
 guessGame();

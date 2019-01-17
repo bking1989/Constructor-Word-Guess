@@ -13,7 +13,6 @@ class Words{
             this.displayArr.forEach(function(letter) {
                 letter.compareFn(guess);
             });
-            this.displayFn();
         };
     };
 };
