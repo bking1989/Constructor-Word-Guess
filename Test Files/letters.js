@@ -7,13 +7,13 @@ class Letters{
             this.guessed = false;
 
             this.compareFn = (guess) => {
-                if (guess == this.value && !this.guessed) {
+                if (guess == this.value && !this.guessed || this.guessed === true) {
                     this.guessed = true;
                     this.display = this.value;
                 } else if (guess != this.value) {
                     this.guessed = false;
                     this.display = this.placeholder;
-                };
+                }
             };
         } else if (letter == " ") {
             this.value = letter;
